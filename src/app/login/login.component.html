@@ -1,0 +1,42 @@
+
+<div *ngIf="msg === 'true'" align="center">
+<div class="centerPosition sizeTitre">
+  <h1 > Bienvenu  chez Nexus-Way
+
+  </h1>
+  <h1> email : {{emailUsre}} </h1>
+
+</div>
+
+
+</div>
+    <div  *ngIf="msg === 'false'" class="card commit">
+      <img src="../../assets/image/nexus.png" class="imageLogLoginSize"/>
+      <div class="card-header">
+        Login
+      </div>
+      <div class="card-body">
+        <form [formGroup]="angForms" >
+          <div class="form-group">
+            <label >Email address</label>
+            <input class="form-control" type="email" formControlName="email"  name="email" #email />
+            <div class="alert alert-danger" role="alert"
+                 *ngIf="angForms.controls['email'].invalid &&
+          (angForms.controls['email'].dirty ||
+           angForms.controls['email'].touched)">
+              email invalide     </div>
+          </div>
+          <div class="form-group">
+            <label >Password</label>
+            <input type="password" class="form-control"  formControlName="pass" name ="pass" #pass />
+          </div>
+
+          <button type="submit" class="btn btn-primary" (click)="login(email.value,pass.value)"  [disabled]='angForms.pristine || angForms.invalid' >login</button>
+        </form>
+        <div  *ngIf="msg === 'true'" class="alert alert-success" role="alert">
+          operation effectué avec succès        </div>
+      </div>
+    </div>
+
+
+
