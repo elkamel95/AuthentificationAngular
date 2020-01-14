@@ -10,6 +10,9 @@
 
 
 </div>
+<div  *ngIf="msg === 'true'" class="alert alert-success" role="alert">
+  operation effectué avec succès        </div>
+
     <div  *ngIf="msg === 'false'" class="card commit">
       <img src="../../assets/image/nexus.png" class="imageLogLoginSize"/>
       <div class="card-header">
@@ -33,10 +36,8 @@
 
           <button type="submit" class="btn btn-primary" (click)="login(email.value,pass.value)"  [disabled]='angForms.pristine || angForms.invalid' >login</button>
         </form>
-        <div  *ngIf="msg === 'true'" class="alert alert-success" role="alert">
-          operation effectué avec succès        </div>
-      </div>
+
     </div>
 
 
-
+    </div>
